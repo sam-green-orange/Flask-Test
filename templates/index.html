@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Homepage</title>
+	 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	<link rel="icon" type="image/x-icon" href="/static/images/loltech.ico">
+</head>
+
+<body>
+	
+	<div id="navbar">
+		<a>
+		  <img
+			class="fit-picture"
+			src="/static/images/logo.png"
+			alt="Loltech logo" 
+			width="50"
+			height="50"
+			align="left"/>
+		</a>
+		<a href="/interesting" id="nav">
+			Simple JS
+		</a>
+		<a href="/goofy" id="nav">
+			Goofy Links
+		</a>
+		<a href="/fun" id="nav">
+			Fun Facts
+		</a>
+		<a href="/idiot" id="nav">
+			You Idiot!
+		</a>
+		<a href="/music" id="nav">
+			Music
+		</a>
+		<a href="/saul" id="nav">
+			Saul
+		</a>
+
+	</div>
+	<h1 class="monotype">Homepage</h1>
+	<p class="normal">Welcome to our Homepage! The objective of this website is to show cool things to the whole world.</p>
+	<h2>Info pages:</h2>
+	<a href="/interesting" class="link">
+		Simple JS
+	</a>
+	<br>
+	<br>
+	<a href="/goofy" class="link">
+		Goofy Links
+	</a>
+	<br>
+	<br>
+	<a href="/fun" class="link">
+		Fun Facts
+	</a>
+	<br/>
+	<br/>
+	<a href="/music" class="link">
+		Music
+	</a>
+	<br/>
+	<br/>
+	<h2>Videos:</h2>
+	<a href="/idiot" class="link">
+		You Idiot!
+	</a>
+	<br/>
+	<br/>
+	<a href="/saul" class="link">
+		Better Call Saul
+	</a>
+	<br/>
+	<br/>
+	<a href="/iphone" class="link">
+		The All New Iphone
+	</a>
+	<br/>
+	<br/>
+	<h2>Games</h2>
+	<a href="/bozo" class="link">
+		BOZO simulator
+	</a>
+	<a> (based on DUM simulator)</a>
+	<br>
+	<br>
+	<a href="/dum-clicker" class="link">
+		Dum clicker
+	</a>
+	<br>
+	<br>
+	<a href="/miner-clicker" class="link">
+		Miner clicker
+	</a>
+	<br>
+	<br>
+	<h2>Generators</h2>
+	<div>
+		<a href="/my-ip" class="link">
+			Your IP Address
+		</a>
+		<br/>
+		<br/>
+		<a href="/sillyname" class="link">
+			Generate a silly name
+		</a>
+		<br/>
+		<br/>
+		<a href="/sillyname5" class="link">
+			Generate 5 silly names
+		</a>
+		<br/>
+		<br/>
+		<a href="/encode/hello" class="link">
+			hello in morse code
+		</a>
+		<p> (change text after /encode/ to encode different values)</p>
+	</div>
+	
+	<br/>
+	<br/>
+	<footer>
+		© Loltech {{the_year}}
+	</footer>
+</body>
+
+</html>
