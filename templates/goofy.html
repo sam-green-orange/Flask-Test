@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Goofy Links</title>
+	<link rel="icon" type="image/x-icon" href="/static/images/loltech.ico">
+	 <link rel="stylesheet" href="{{ url_for('static', filename='css/goofy.css') }}">
+</head>
+
+<body>
+
+	<div id="navbar">
+		<a href="/">
+		  <img
+			class="fit-picture"
+			src="/static/images/logo.png"
+			alt="Loltech logo" 
+			width="50"
+			height="50"
+			align="left"/>
+		</a>
+		<a href="/interesting" id="nav">
+			Simple JS
+		</a>
+		<a id="on-nav">
+			Goofy Links
+		</a>
+		<a href="/fun" id="nav">
+			Fun Facts
+		</a>
+		<a href="/idiot" id="nav">
+			You Idiot!
+		</a>
+		<a href="/music" id="nav">
+			Music
+		</a>
+		<a href="/saul" id="nav">
+			Saul
+		</a>
+
+	</div>
+	<h1 class="title">Goofy Links</h1>
+	<p class="normal">Goofy links:</p>
+	<a href="https://goofy-labs.my.canva.site/" class="link">
+		Goofy labs homepage
+	</a>
+	<br>
+	<br>
+	<a href="https://neal.fun" class="link">
+		Neal.fun Homepage
+	</a>
+	<br>
+	<br>
+	<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="link">
+		Rickroll
+	</a>
+	<br>
+	<br>
+	<p class="normal">(All of below fork and run on replit.)</p>
+	<a class="link" href="https://replit.com/@YOUSmomentumSAG/Banana-Game-1?v=1">
+		Banana Game 
+	</a> 
+	<a href="https://replit.com/@YOUSmomentumSAG/Banana-Game-1?v=1" class="link">
+		1
+	</a>
+	<a href="https://replit.com/@YOUSmomentumSAG/Banana-Game-2?v=1" class="link">
+		2
+	</a>
+	<a href="https://replit.com/@YOUSmomentumSAG/Banana-Game-3?v=1" class="link">
+		3
+	</a>
+	<br/>
+	<br/>
+	<footer>
+		© Loltech {{the_year}}
+	</footer>
+	<script type="module" src="{{url_for('static', filename='js/goofy.js')}}"></script>
+</body>
+
+</html>

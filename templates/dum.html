@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BOZO simulator</title>
+	<link rel="icon" type="image/x-icon" href="/static/images/loltech.ico">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/dum.css') }}">
+</head>
+<body>
+	
+	  <img src="/static/images/dum.png" alt="diagram" height="200", width="400">
+	<h1 id="moguses">100 BOZOs</h1>
+	  <div id="messages">
+
+	  </div>
+	  <button>Next day</button>
+
+	<script>
+		const deaths = [
+		"woke up dead.",
+		"hid a zombie bite.",
+		"took candy from a stranger.",
+		"took an arrow to the knee.",
+		"succumbed to the dum.",
+		"is being paid to make the others look good.",
+		"didn't respawn.",
+		"broke the 4th wall.",
+		"kicked the bucket.",
+		"is swimming with the fishes.",
+		"enjoyed falling, but not the stop at the end.",
+		"made a full claim on their life insurance policy.",
+		"would have gotten away with it too, if it weren't for you meddling kids.",
+		"tried to balance a lightsaber on their shoulder.",
+		"is pushing up daisies.",
+		"triggered this death message.",
+		"vanished into thin air.",
+		"spontaneously combusted.",
+		"is a first place loser.",
+		"is having a bad day.",
+		"pressed the self-destruct button.",
+		"dug his own grave.",
+		"drowned in air.",
+		"tested a guillotine.",
+		"reached his expiry date.",
+		"took his last breath.",
+		"bought the farm.",
+		"went six feet under.",
+		"jumped without a parachute",
+		"got eaten alive.",
+		"fell off a ladder.",
+		]
+
+		const dumStuff = [
+		  {
+			name: "cutting off the branch he was sitting on",
+			value: -17,
+		  },
+		  {
+			name: "ironing his own clothes",
+			value: -16,
+		  },
+		  {
+			name: "trying to pet a rabid squirrel",
+			value: -15,
+		  },
+		  {
+			name: "watching paint dry",
+			value: -1,
+		  },
+		  {
+			name: "posting this Repl",
+			value: -20,
+		  },
+		  {
+			name: "playing pattycake with a saw",
+			value: -23,
+		  },
+		  {
+			name: "electrocuting themselves",
+			value: -25,
+		  },
+		  {
+			name: "playing chicken with a truck",
+			value: -27,
+		  },
+		  {
+			name: "playing chicken with a nuke",
+			value: -50,
+		  },
+		  {
+			name: "watching SnapTok or TikBook or FaceChat",
+			value: -40,
+		  },
+		  {
+			name: "playing BOZO simulator",
+			value: -5,
+		  },
+		  {
+			name: "punching a computer",
+			value: -19,
+		  },
+		  {
+			name: "sticking their tongue to a sculpture",
+			value: -9,
+		  },
+		  {
+			name: "tying their shoelaces together",
+			value: -3,
+		  },
+		  {
+			name: "using a nuke to make toast",
+			value: -20,
+		  },
+		  {
+			name: "saving their passwords on google drive",
+			value: -13,
+		  },
+		  {
+			name: "saving their passwords on google drive",
+			value: -13,
+		  },
+		  {
+			name: "getting driven by their car",
+			value: -18,
+		  },
+		  {
+			name: "getting rickrolled",
+			value: -1,
+		  },
+		  {
+			name: "n07 831n9 1337",
+			value: -39,
+		  },
+		  {
+			name: "whacking their head repeatedly against the wall",
+			value: -24,
+		  },
+		  {
+			name: "snatching defeat from the jaws of victory",
+			value: -12,
+		  },
+		  {
+			name: "speedrunning braincell loss",
+			value: -2,
+		  },
+		  {
+			name: "selling both their kidneys on the internet",
+			value: -27,
+		  },
+		  {
+			name: "driving their Lambo into a fire hydrant",
+			value: -31,
+		  },
+		  {
+			name: "getting walked by their dog",
+			value: -17,
+		  },
+		  {
+			name: "reading this message",
+			value: -7,
+		  },
+		  {
+			name: "using the password 1234567890",
+			value: -50,
+		  },
+		]
+
+		let MOGUSES = 100;
+		let mogusStates = [];
+		let messages = [];
+
+		const mogquerySelectorDisplay = document.querySelector('#moguses');
+		const btn = document.querySelector('button');
+		const m = document.querySelector('#messages');
+
+
+		const setup = () => {
+		  for (let i = 0; i < MOGUSES; i++) {
+			mogusStates.push({name: "BOZO-"+Math.floor(Math.random() * 1000), dum: -1})
+		  }
+		}
+
+		const nextDay = () => {
+		  messages = []
+		  for (let i = 0; i < mogusStates.length; i++) {
+			const dumThing = dumStuff[Math.floor(Math.random() * dumStuff.length)];
+
+			if (Math.random() > 0.50) {
+			  mogusStates[i].dum += dumThing.value;
+			  messages.push(mogusStates[i].name + " lost braincells " + dumThing.name);
+			}
+
+			if (mogusStates[i].dum <= -100) {
+			  MOGUSES--;
+			  messages.push("<b class='red'>[DEATH]</b> " + mogusStates[i].name + " " + deaths[Math.floor(Math.random() * deaths.length)]);
+			  mogusStates.splice(i, 1);
+			} 
+
+			if (mogusStates[i].dum <= -51) {
+			  if (Math.floor(Math.random() * 8) == 1) {
+				MOGUSES++;
+				mogusStates.push({name: "BOZO-"+Math.floor(Math.random() * 1000), dum: -1})
+			  }
+			}
+
+		  }
+
+
+		  if (MOGUSES == 0) {
+			messages.push("<b class='red'>[FINAL DEATH]</b> The BOZO race is now extinct")
+		  }
+
+		  messages.map(msg => {
+			m.insertAdjacentHTML('beforeend', '<div>' + msg + '</div>');
+		  })
+
+		  mogquerySelectorDisplay.textContent = MOGUSES + " BOZOs";
+		}
+
+		setup()
+		btn.addEventListener('click', nextDay);
+
+	</script>
+</body>
+</html>
