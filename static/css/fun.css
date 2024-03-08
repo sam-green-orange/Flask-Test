@@ -1,0 +1,60 @@
+.monotype {
+	font-family: "Courier New", "Courier", "monotype";
+}
+.normal {
+	font-family: "Arial", "sans-serif"
+}
+.invis {
+	background-color: #efface;
+	color: #efface;
+}
+
+
+html {
+	background-color: #efface;
+}
+
+.lgreen {
+	color: #BADA55;
+}
+
+.efface {
+	color: #efface;
+}
+
+.leet {
+	color: #1337;
+}
+.banana {
+	color: #fff700;
+}
+
+#navbar {
+	background-color: lightcyan;
+	overflow: hidden;
+}
+#list {
+	background-color: #b4b4b4;
+}
+#nav {
+	float: left;
+	color: #000000;
+	text-align: center;
+	padding: 14px 12px;
+	text-decoration: none;
+	font-size: 17px;
+}
+#on-nav {
+	float: left;
+	color: #8f8f8f;
+	text-align: center;
+	padding: 14px 12px;
+	text-decoration: none;
+	font-size: 17px;
+}
+.link {
+	background-color: #efface;
+	border-style: solid;
+	color: #000000;
+	text-decoration: none;
+}
