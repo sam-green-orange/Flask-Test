@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mining clicker</title>
+	<link rel="icon" type="image/x-icon" href="/static/images/loltech.ico">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/cookie.css') }}"/>
+</head>
+<body>
+	<div class=upgrades>
+		<h3>Clicking upgrades</h3>
+		<button onclick=upgrade()>
+		  Better pickaxe (costs 25 stone)
+		</button>
+		<br>
+		<h3>Miner upgrades</h3>
+		<button onclick=miner()>
+			<img class="image" src="/static/images/pickaxe.png"/>
+		  Hire a miner (costs 100 stone)
+		</button>
+		  <button onclick=speed()>
+			  <img class="image" src="/static/images/diamond.png"/>
+			Sharpen miner pickaxes (costs 500 stone)
+		  </button>
+		  <button onclick=pickaxe()>
+			  <img class="image" src="/static/images/coal.png"/>
+			Better Miner pickaxe (costs 200 stone)
+		  </button>
+		  <br>
+		  <h3>TBM (tunnel-boring machine) upgrades</h3>
+		  <button onclick=drill()>
+			  <img class="limage" src="/static/images/TBM.png"/>
+			  Build a TBM (costs 100,000 stone)
+		  </button>
+		  <button onclick=sharpen()>
+			  <img class="limage" src="/static/images/DTBM.png"/>
+				Sharpen drill bits (costs 50,000 stone)
+		</button>
+		  <button onclick=multiplier()>
+			  <img class="limage" src="/static/images/TTBM.png"/>
+				Modify TBMs (costs 40,000 stone)
+		  </button>
+		  <br>
+		<h3>Nuke upgrades</h3>
+		<button onclick=nuker()>
+			<img class="limage" src="/static/images/Nuke.png"/>
+			  Automatically mine with nukes (costs 5,000,000 stone)
+		</button>
+		<button onclick=tsar()>
+			Use Tsar bombs (costs 2,500,000 stone)
+		</button>
+		<br>
+		<h3>Laser Upgrades</h3>
+		<button onclick=laser()>
+			Start a laser (costs 500,000,000 stone)
+		</button>
+		<button onclick=focusBeam()>
+			Focused Beam (costs 350,000,000 stone)
+		</button>
+	</div>
+	<h2 id="mine-name">{{result}}'s mine</h2>
+	<button onclick="changename()">Change Name</button>
+	<h1 id='score'>0 stone</h1>
+	<banana id="minerinfo">
+		0 miners mining 1 stone 1 times per second
+	</banana>
+	<br>
+	<banana id="clickyinfo">
+		1 stone per click
+	</banana>
+	<br>
+	<banana id="tbminfo">
+		0 TBMs mining 2000 stone 1 time per second
+	</banana>
+	<br>
+	<banana id="nukeinfo">
+		0 nukes mining 1000000 stone 1 time every five seconds
+	</banana>
+	<br>
+	<banana id="laserinfo">
+		0 lasers mining 2000000 stone 1 times every 0.5 seconds
+	</banana>
+	<br>
+	<button class="clicky" onclick="increase()">
+	  <img class="rock" src="/static/images/rock.png"/>
+	</button>
+	<br>
+	
+	  <br/>
+	  <br/>
+	  <footer>
+		  © Loltech {{the_year}}
+	  </footer>
+	  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<button onclick=cheat(1000)>
+		  +1000
+		</button>
+	  <button onclick=cheat(100000)>
+		  +100000
+	  </button>
+	<button onclick=cheat(10000000)>
+		  +10000000
+	  </button>
+	<button onclick=cheat(1000000000)>
+		  +1000000000
+	  </button>
+	<script>
+		var miners = 0
+		var lasers = 0
+		var laser_efficiency = 1
+		var nukes = 0
+		var miner_efficiency = 1
+		var stone = 0
+		var efficiency = 1
+		var minerTime = 1000
+		var TBMs = 0
+		var TBMtime = 0.5
+		var TBM_efficiency = 1
+		var nuke_efficiency = 2000000
+		var authenticated = false
+		var change = true
+		function changename() {
+			let name = prompt('Name:');
+			if (name == "Loltech123734") {
+				authenticated = true
+				document.getElementById('mine-name').innerHTML = `${name}'s mine`
+			} else if (name != null) {
+				document.getElementById('mine-name').innerHTML = `${name}'s mine`
+			} else {
+				;
+			}
+			
+		}
+		function cheat(x) {
+			if (authenticated) {
+				stone += x
+			} else {
+				while (true) {
+					alert("stop cheating.")
+				}
+			}
+		}
+		function update() {
+			document.getElementById('score').innerHTML = stone + ' stone' 
+		}
+		function upgradeupdate() {
+			document.getElementById('minerinfo').innerHTML = `${miners} miners mining ${miner_efficiency} stone ${1/(minerTime/1000)} times per second`
+			document.getElementById('tbminfo').innerHTML = `${TBMs} TBMs mining ${TBM_efficiency} stone ${Math.floor(1/(TBMtime/1000))} times per second`
+			document.getElementById('clickyinfo').innerHTML = `${efficiency} stone per click`
+			document.getElementById('nukeinfo').innerHTML = `${nukes} nukes mining ${nuke_efficiency} stone 1 time every five seconds`
+			document.getElementById('laserinfo').innerHTML = `${lasers} lasers mining 2000000 stone ${laser_efficiency} times every 0.5 seconds`
+		}
+		function speed() {
+			if (minerTime > 125) {
+				if (stone >= 500) {
+					stone -= 500
+					minerTime = minerTime/2
+					update()
+					upgradeupdate()
+				} else {
+					alert("You need more stone.")}
+			} else {
+				alert("You have reached the limit")
+			}
+			
+			
+		}
+		function sharpen() {
+			if (TBMtime != 0.3) {
+				if (stone >= 50000) {
+					stone -= 50000
+					TBMtime = 0.3
+					upgradeupdate()
+				}
+			} else {
+				alert("You have bought this upgrade already.")
+			}
+		}
+
+		function multiplier() {
+			if (TBM_efficiency < 5) {
+				if (stone >= 40000) {
+					stone -= 40000
+					TBM_efficiency += 1
+					upgradeupdate()
+				}
+			} else {
+				alert("You have reached the limit.")
+			}
+		}
+		function drill() {
+			if (stone >= 100000) {
+				stone -= 100000
+				update()
+				TBMs += 1
+				setTimeout(TBM, TBMtime)
+				upgradeupdate()
+			} else {
+				alert("You need more stone.")
+			}
+		}
+		function TBM() {
+			stone += TBM_efficiency
+			update()
+			setTimeout(TBM, TBMtime)
+		}
+		function miner() {
+			if (stone >= 100) {
+				stone -= 100
+				update()
+				miners += 1
+				setTimeout(mine, minerTime)
+				upgradeupdate()
+			} else {
+				alert("You need more stone.")
+			}
+			
+		}
+		function nuker() {
+			if (stone >= 5000000) {
+				stone -= 5000000
+				update()
+				nukes += 1
+				setTimeout(nuke, 5000)
+				upgradeupdate()
+			} else {
+				alert("You need more stone.")
+			}
+
+		}
+		function focusBeam() {
+				if (stone >= 350000000) {
+					stone -= 350000000
+					laser_efficiency += 1
+					update()
+					upgradeupdate()
+				} else {
+					alert("You need more stone.")
+				}
+			}
+		function laser() {
+			if (stone >= 500000000) {
+				stone -= 500000000
+				update()
+				lasers += 1
+				setTimeout(lase, 500)
+				upgradeupdate()
+			} else {
+				alert("You need more stone.")
+			}
+
+		}
+		function lase() {
+			stone += 2000000*laser_efficiency
+			update()
+			setTimeout(lase, 500)
+		}
+		function nuke() {
+			stone += nuke_efficiency
+			update()
+			setTimeout(nuke, 5000)
+		}
+		function tsar() {
+			if (nuke_efficiency < 5000000) {
+				if (stone >= 2500000) {
+					stone -= 2500000
+					nuke_efficiency = 5000000
+					update()
+					upgradeupdate()
+				} else {
+					alert("You need more stone.")
+				}
+			} else {
+				alert("You have bought this upgrade already.")
+			}
+		}
+		function mine() {
+			stone += miner_efficiency
+			update()
+			setTimeout(mine, minerTime)
+		}
+		function pickaxe() {
+			if (miner_efficiency < 15) {
+				if (stone >= 200) {
+					stone -= 200
+					miner_efficiency += 1
+					update()
+					upgradeupdate()
+				} else {
+					alert("You need more stone.")
+				}
+			} else {
+				alert("You have reached the limit.")
+			}
+			
+		}
+		function increase() {
+			stone += efficiency
+			update()
+		}
+		function upgrade() {
+			if (stone >= 25) {
+				stone -= 25
+				efficiency += 1
+				update()
+				upgradeupdate()
+			} else {
+				alert("You need more stone.")
+			}
+		}
+	</script>
+
+</body>
+</html>

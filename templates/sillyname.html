@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Silly Name Generator</title>
+	<link rel="icon" type="image/x-icon" href="/static/images/loltech.ico">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/morse.css') }}">
+</head>
+<body
+	<div align="left">
+		<a href="/">
+		  <img
+			class="fit-picture"
+			src="/static/images/logo.png"
+			alt="Loltech logo" 
+			width="50"
+			height="50"
+			align="left"/>
+		</a>
+		<a href="/interesting" id="nav">
+			Simple JS
+		</a>
+		<a href="/goofy" id="nav">
+			Goofy Links
+		</a>
+		<a href="/fun" id="nav">
+			Fun Facts
+		</a>
+		<a href="/idiot" id="nav">
+			You Idiot!
+		</a>
+		<a href="/music" id="nav">
+			Music
+		</a>
+		<a href="/saul" id="nav">
+			Saul
+		</a>
+	</div>
+	<br>
+	<br>
+	<h1 align="left">😜Your silly name is:😜</h1>
+	<p>{{result}}</p>
+	<button type="button" class="button" onclick="reload()">
+		Retry
+	</button>
+	<br/>
+	<br/>
+	<footer>
+		© Loltech {{the_year}}
+	</footer>
+	<script>
+		function reload() {
+			location.reload();
+		}
+	</script>
+</body>
+</html>
