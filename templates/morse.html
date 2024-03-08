@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Morse</title>
+	<link rel="icon" type="image/x-icon" href="/static/images/loltech.ico">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/morse.css') }}">
+</head>
+<body
+	<div align="left">
+		<a href="/">
+		  <img
+			class="fit-picture"
+			src="/static/images/logo.png"
+			alt="Loltech logo" 
+			width="50"
+			height="50"
+			align="left"/>
+		</a>
+		<a href="/interesting" id="nav">
+			Simple JS
+		</a>
+		<a href="/goofy" id="nav">
+			Goofy Links
+		</a>
+		<a href="/fun" id="nav">
+			Fun Facts
+		</a>
+		<a href="/idiot" id="nav">
+			You Idiot!
+		</a>
+		<a href="/music" id="nav">
+			Music
+		</a>
+		<a href="/saul" id="nav">
+			Saul
+		</a>
+	</div>
+	<br>
+	<br>
+	<h1 align="left">"{{text}}" Converted into:</h1>
+	<p>{{result}}</p>
+	<p>Supported characters: all letters and numbers (lowercase and uppercase), spaces, and the following symbols: . , ? / _ + @ : ; - ( ) & = " ' ! %</p>
+	<p>Note that the percent sign will be encoded as 0/0.</p>
+	<p>
+		Also note that some symbols cannot be encoded well because of the nature of the entry bar.
+	</p>
+	<p>
+		Unknown symbols (such as emojis or brackets) will be encoded as is.</p>
+	<p>
+		The message will end in "30" in accordance to conventions.
+	</p>
+	<br/>
+	<br/>
+	<footer>
+		© Loltech {{the_year}}
+	</footer>
+</body>
+</html>

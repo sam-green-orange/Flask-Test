@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Simple JS</title>
+	<link rel="icon" type="image/x-icon" href="/static/images/loltech.ico">
+	 <link rel="stylesheet" href="{{ url_for('static', filename='css/interesting.css') }}">
+</head>
+
+<body>
+	
+	<div id="navbar">
+    <a href="/">
+      <img
+        class="fit-picture"
+        src="/static/images/logo.png"
+        alt="Loltech logo" 
+        width="50"
+        height="50"
+        align="left"/>
+    </a>
+		<a id="on-nav">
+			Simple JS
+		</a>
+		<a href="/goofy" id="nav">
+			Goofy Links
+		</a>
+		<a href="/fun" id="nav">
+			Fun Facts
+		</a>
+		<a href="/idiot" id="nav">
+			You Idiot!
+		</a>
+		<a href="/music" id="nav">
+			Music
+		</a>
+		<a href="/saul" id="nav">
+			Saul
+		</a>
+
+	</div>
+	<h1 class="monotype" id="text">Interesting</h1>
+	<div id="border">
+		<h3 id="Robux">Get Robux</h3>
+		<button type="button" id="sus" onclick="doFunction()">
+			<a class="normal">
+				Get Robux
+			</a>
+		</button>
+	</div>
+	<div id="border">
+		<h3>
+			<a class="normal">
+				Viruses (non-destructive)
+			</a>
+		</h3>
+		<button type="button" id="very_sus" onclick="virus()">
+			Click this to see<br/>7 copies of google.
+		</button>
+		<br>
+		<button type="button" id="hydr" onclick="rehydr()">
+			Click this to get infinite googles.<br/>
+			Warning! You may have to restart your computer.
+		</button>
+	</div>
+	<div id="border">
+		<h3>
+			<a class="normal">
+				Change this page
+			</a>
+		</h3>
+		<button type="button" class="button blue" onclick="Blue()">
+			BG Color to Blue
+		</button>
+		<br>
+		<button type="button" class="button red" onclick="Red()">
+			BG Color to Red
+		</button>
+		<br>
+		<button type="button" class="button default" onclick="Reset()">
+			Reset BG color
+		</button>
+	</div>
+	<div id="border">
+		<h3>
+			<a class="normal">
+				Iframes (hold button for longer)
+			</a>
+		</h3>
+		<button type="button" class="button yellow" onclick="toggle(this)">
+			Toggle Windows 98
+		</button>
+		<iframe
+		  width=1000
+		  height=700
+		  src="https://98.js.org/"
+		  id="iframe"
+		  hidden>
+			Your browser does not support iframes.
+		</iframe>
+		<br/>
+		<button type="button" class="button blue" 
+id="bingb" onclick="togglebing(this)">
+			Browse Bing
+		</button>
+		<iframe id="bing" src="https://www.bing.com" width="1000" height="800" frameborder="0" scrolling="auto" hidden>Your browser does not support iframes.</iframe>
+	</div>
+	<div id="border">
+		<h3>
+			<a class="normal">
+				Music
+			</a>
+		</h3>
+		<button type="button" class="button blue" onclick="playcoolsound(this)" id="cool">
+			Boss battle music
+		</button>
+		<button type="button" class="button red" onclick="stopcoolsound()">
+			Stop
+		</button>
+		<br/>
+		<button type="button" class="button blue" onclick="playjeopardy(this)" id="jeopardy">
+			5 cents Jeopardy
+		</button>
+		<button type="button" class="button red" onclick="stopjeopardy()">
+			Stop
+		</button>
+		<br/>
+		<button type="button" class="button blue" onclick="playtacos(this)" id="tacos">
+			It's Raining tacos
+		</button>
+		<button type="button" class="button red" onclick="stoptacos()">
+			Stop
+		</button>
+		</button>
+		<br/>
+		<button type="button" class="button blue" onclick="playtelephone(this)" id="telephone">
+			Calm, hold music
+		</button>
+		<button type="button" class="button red" onclick="stoptelephone()">
+			Stop
+	</div>
+	<button type="button" class="big default" onclick="ResetAll()">
+		Reset all
+	</button>
+	<br/>
+	<br/>
+	<footer>
+		© Loltech {{the_year}}
+	</footer>
+	<script>
+		var cbutton = document.getElementById("cool")
+		var jbutton = document.getElementById("jeopardy")
+		var tbutton = document.getElementById("tacos")
+		var tlbutton = document.getElementById("telephone")
+		function ResetAll() {
+			cbutton.removeAttribute('disabled');
+			jbutton.removeAttribute('disabled');
+			tbutton.removeAttribute('disabled');
+			tlbutton.removeAttribute('disabled');
+			document.body.style.backgroundColor = "#efface";
+			document.getElementById("Robux").innerHTML = "Get Robux";
+			let element = document.getElementById("bing");
+			element.setAttribute("hidden", "hidden");
+			bingbutton = document.getElementById("bingb")
+			bingbutton.innerText = "Browse Bing";
+			let nelement = document.getElementById("iframe");
+			nelement.setAttribute("hidden", "hidden");
+			try {
+				snd.pause();
+				snd.currentTime = 0;
+			} catch {
+				;
+			}
+			try {
+				jnd.pause();
+				jnd.currentTime = 0;
+			} catch {
+				;
+			}
+			try {
+				tnd.pause();
+				tnd.currentTime = 0;
+			} catch {
+				;
+			}
+			try {
+				tlnd.pause();
+				tlnd.currentTime = 0;
+			} catch {
+				;
+			}
+		}
+		function stopcoolsound() {
+			cbutton = document.getElementById("cool");
+			cbutton.removeAttribute('disabled');
+			try {
+				snd.pause();
+				snd.currentTime = 0;
+			} catch {
+				;
+			}
+			
+		}
+		function stopjeopardy() {
+			jbutton = document.getElementById("jeopardy");
+			jbutton.removeAttribute('disabled');
+			try {
+				jnd.pause();
+				jnd.currentTime = 0;
+			} catch {
+				;
+			}
+		}
+		function stoptacos() {
+			tbutton = document.getElementById("tacos");
+			tbutton.removeAttribute('disabled');
+			try {
+				tnd.pause();
+				tnd.currentTime = 0;
+			} catch {
+				;
+			}
+		}
+		function stoptelephone() {
+			tlbutton = document.getElementById("telephone");
+			tlbutton.removeAttribute('disabled');
+			try {
+				tlnd.pause();
+				tlnd.currentTime = 0;
+			} catch {
+				;
+			}
+		}
+		function playcoolsound(button) {
+			button.setAttribute('disabled', 'true');
+			snd = new Audio("/static/music/cool sound.mp3")
+			snd.play()
+			
+		}
+		function playjeopardy(button) {
+			button.setAttribute('disabled', 'true');
+			jnd = new Audio("/static/music/Jeopardy.mp3")
+			jnd.play()
+		}
+		function playtacos(button) {
+			button.setAttribute('disabled', 'true');
+			tnd = new Audio("/static/music/tacos.mp3")
+			tnd.play()
+		}
+		function playtelephone(button) {
+			button.setAttribute('disabled', 'true');
+			tlnd = new Audio("/static/music/telephone.mp3")
+			tlnd.play()
+		}
+		let togglebing = button => {
+			let element = document.getElementById("bing");
+			let hidden = element.getAttribute("hidden");
+
+			if (hidden) {
+			   element.removeAttribute("hidden");
+			   button.innerText = "Hide Bing";
+			} else {
+			   element.setAttribute("hidden", "hidden");
+			   button.innerText = "Browse Bing";
+			}
+		  }
+		let toggle = button => {
+			let element = document.getElementById("iframe");
+			let hidden = element.getAttribute("hidden");
+
+			if (hidden) {
+			   element.removeAttribute("hidden");
+			} else {
+			   element.setAttribute("hidden", "hidden");
+			}
+		  }
+		function rehydr() {
+			alert("Tip: On mac simply quit chrome and delete the windows, on chromebook simply restart your computer.")
+			alert("Press ok to confirm. Otherwise, delete this tab.")
+			location.replace("/hydr")
+		}
+		function doFunction() {
+			alert("Warning: you might get banned by roblox admins.");
+			if (document.getElementById("Robux").innerHTML === "Get more Robux") {
+				document.getElementById("Robux").innerHTML = "Get even more Robux";
+			}
+			else {
+				document.getElementById("Robux").innerHTML = "Get more Robux";
+			}
+			
+
+
+
+		}
+		function virus() {
+	setInterval(window.open("https://google.com", "", "width=10, height=10"), 1); setInterval(window.open("https://google.com", "", "width=100, height=100"), 1); setInterval(window.open("https://google.com", "", "width=100, height=10"), 1); 
+	setInterval(window.open("https://google.com", "_blank"), 1); setInterval(window.open("https://google.com", "_blank"), 1); setInterval(window.open("https://google.com", "_blank"), 1); setInterval(window.open("https://google.com", "_blank"), 1); }
+		function Blue() {
+			document.body.style.backgroundColor = "skyblue";
+		}
+		function Reset() {
+			document.body.style.backgroundColor = "#efface";
+		}
+		function Red() {
+			document.body.style.backgroundColor = "palevioletred";
+		}
+
+
+
+
+		</script>
+</body>
+
+</html>
